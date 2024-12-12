@@ -1,11 +1,19 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ConfigModule } from '@nestjs/config';
 import { DynamoModule } from './modules/dynamo/dynamo.module';
 import { FamilyModule } from './modules/family/family.module';
 
 @Module({
-  imports: [DynamoModule, FamilyModule],
+  imports: [
+    DynamoModule,
+    FamilyModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: '.env.development',
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
