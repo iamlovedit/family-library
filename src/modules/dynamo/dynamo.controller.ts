@@ -1,7 +1,7 @@
 import { ApiTags } from '@nestjs/swagger';
 import { Controller, Get } from '@nestjs/common';
 import { Message, MessageData } from 'src/infrastructure';
-import { ControllerBase } from 'src/infrastructure/controller';
+import { ControllerBase } from 'src/infrastructure/controller.base';
 
 @Controller('dynamo')
 @ApiTags('dynamo')
